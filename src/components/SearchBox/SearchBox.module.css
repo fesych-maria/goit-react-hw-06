@@ -22,7 +22,7 @@
     outline: none;
 
     &:focus {
-      border-color: #b0aac0;
+      border-color: #9893da;
     }
   }
 }

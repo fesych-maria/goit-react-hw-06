@@ -1,10 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
 import css from "./SearchBox.module.css";
+import { changeFilter } from "../../redux/filtersSlice";
 
-const SearchBox = ({ handleChange, value }) => {
+const SearchBox = () => {
+  const value = useSelector((state) => state.filters.name);
+  const dispatch = useDispatch();
   return (
     <div className={css.wrapper}>
       <p>Find contacts by name</p>
-      <input onChange={(e) => handleChange(e.target.value)} value={value} />
+      <input
+        onChange={(e) => dispatch(changeFilter(e.target.value))}
+        value={value}
+      />
     </div>
   );
 };

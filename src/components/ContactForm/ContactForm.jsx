@@ -3,8 +3,10 @@ import { nanoid } from "nanoid/non-secure";
 import { useId } from "react";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
 
-const ContactForm = ({ addContacts }) => {
+const ContactForm = () => {
   const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Too short")
@@ -24,10 +26,12 @@ const ContactForm = ({ addContacts }) => {
     number: "",
   };
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     const id = nanoid();
     const contactData = { ...values, id };
-    addContacts(contactData);
+    dispatch(addContact(contactData));
     actions.resetForm();
   };
 
