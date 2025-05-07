@@ -5,10 +5,6 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import ContactList from "./components/ContactList/ContactList";
 
 const App = () => {
-  // const filterContacts = contacts.filter((contact) =>
-  //   contact.name.toLowerCase().includes(text.toLowerCase())
-  // );
-
   return (
     <Container>
       <h1 className="heading">Phonebook</h1>
